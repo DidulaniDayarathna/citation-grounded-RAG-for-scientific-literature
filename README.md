@@ -1,19 +1,19 @@
-# Citation-Grounded RAG for Scientific Literature
+# Citation Grounded RAG for Scientific Literature
 
-A Retrieval-Augmented Generation (RAG) system for asking natural-language questions across a library of research papers and getting answers grounded in — and traceable back to — the exact source paper and page. Built to explore the Agentic AI literature, but works with any collection of PDF research papers.
+A Retrieval Augmented Generation (RAG) system for asking natural language questions across a library of research papers and getting answers grounded in — and traceable back to — the exact source paper and page. Built to explore the Agentic AI literature, but works with any collection of PDF research papers.
 
 ## Overview
 
 Large language models are fluent, but they aren't reliable narrators of their own sources. This project addresses that by separating *generation* from *citation*: instead of trusting the LLM to accurately recall or cite what it read, the retrieval step is tracked programmatically, so every answer comes with a verifiable list of the papers and pages it was actually built from.
 
-The system ingests multiple PDFs, chunks and embeds their content, stores them in a vector database, and retrieves the most relevant passages for each question. Those passages are numbered and fed to the LLM, which generates an answer referencing them — and a source list built directly from retrieval metadata is printed alongside every answer, independent of what the model claims to have cited.
+The system ingests multiple PDFs, chunks and embeds their content, stores them in a vector database, and retrieves the most relevant passages for each question. Those passages are numbered and fed to the LLM, which generates an answer referencing them and a source list built directly from retrieval metadata is printed alongside every answer, independent of what the model claims to have cited.
 
 ## Features
 
-- **Multi-paper ingestion** — drop any number of PDFs into `papers/` and the notebook ingests all of them in one pass
+- **Multi-paper ingestion** — drop any number of PDFs into `content/` and the notebook ingests all of them in one pass
 - **Citation grounding** — every answer is paired with a deduplicated, accurate list of source papers and page numbers, generated from retrieval metadata rather than the LLM's own claims
 - **Semantic retrieval** — chunked, embedded, and indexed for similarity search rather than keyword matching
-- **Swappable LLM backend** — runs on any Hugging Face Inference-served model; not locked to a single provider
+- **Swappable LLM backend** — runs on any Hugging Face Inference served model; not locked to a single provider
 
 ## Tools & Stack
 
